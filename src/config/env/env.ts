@@ -19,6 +19,10 @@ const envSchema = z.object({
             .regex(/^[0-9]+$/)
             .transform((value) => parseInt(value)),
     ]),
+
+    WILDBERRIES_API_KEY: z.string({
+        required_error: "WILDBERRIES_API_KEY is required for authorization",
+    }),
 });
 
 const env = envSchema.parse({
@@ -29,6 +33,7 @@ const env = envSchema.parse({
     POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
     NODE_ENV: process.env.NODE_ENV,
     APP_PORT: process.env.APP_PORT,
+    WILDBERRIES_API_KEY: process.env.WILDBERRIES_API_KEY,
 });
 
 export default env;
