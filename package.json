@@ -8,11 +8,9 @@
         "dev": "nodemon --watch src --ext ts --exec tsx src/app.ts",
         "watch:build": "tsc --build --force --verbose --watch",
         "knex:dev": "tsx src/utils/knex.ts",
-
         "build": "tsc --allowJs",
         "start": "node dist/app.js",
         "knex": "node dist/utils/knex.js",
-        
         "tsc:check": "tsc --allowJs --noEmit",
         "prettier": "prettier --config .prettierrc.json src/**/*.js --check",
         "prettier-format": "prettier --config .prettierrc.json src/**/*.js --write",
@@ -33,6 +31,7 @@
     "dependencies": {
         "commander": "^13.1.0",
         "dotenv": "^16.3.1",
+        "google-spreadsheet": "^4.1.4",
         "googleapis": "^144.0.0",
         "knex": "^3.0.1",
         "log4js": "^6.9.1",
