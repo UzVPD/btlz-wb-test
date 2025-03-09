@@ -12,7 +12,7 @@ volumes:
 services:
 
   postgres:
-    container_name: postgres
+    container_name: postgres2
 
     image: postgres:16.1-alpine
 
@@ -60,6 +60,10 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PORT: ${APP_PORT}
       NODE_ENV: production
+      WILDBERRIES_API_KEY: ${WILDBERRIES_API_KEY}
+      GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY: ${GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY}
+      GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL: ${GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL}
+      SPREADSHEET_ID: ${SPREADSHEET_ID}
 
     ports:
       - ${APP_PORT}:${APP_PORT}

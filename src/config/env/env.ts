@@ -19,6 +19,20 @@ const envSchema = z.object({
             .regex(/^[0-9]+$/)
             .transform((value) => parseInt(value)),
     ]),
+
+    WILDBERRIES_API_KEY: z.string({
+        required_error: "WILDBERRIES_API_KEY is required for authorization",
+    }),
+    GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY: z.string({
+        required_error: "GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY is required for Google Sheets integration",
+    }),    
+    GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL: z.string({
+        required_error: "GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL is required for Google Sheets integration",
+    }),
+    SPREADSHEET_ID: z.string({
+        required_error: "SPREADSHEET_ID is required for Google Sheets integration",
+    }),
+
 });
 
 const env = envSchema.parse({
@@ -29,6 +43,10 @@ const env = envSchema.parse({
     POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
     NODE_ENV: process.env.NODE_ENV,
     APP_PORT: process.env.APP_PORT,
+    WILDBERRIES_API_KEY: process.env.WILDBERRIES_API_KEY,
+    GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY,
+    GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL: process.env.GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL,
+    SPREADSHEET_ID: process.env.SPREADSHEET_ID,
 });
 
 export default env;
